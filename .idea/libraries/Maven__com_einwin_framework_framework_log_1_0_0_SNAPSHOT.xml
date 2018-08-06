@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.einwin.framework:framework-log:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/einwin/framework/framework-log/1.0.0-SNAPSHOT/framework-log-1.0.0-20180327.091343-14.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/einwin/framework/framework-log/1.0.0-SNAPSHOT/framework-log-1.0.0-20180327.091343-14-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/einwin/framework/framework-log/1.0.0-SNAPSHOT/framework-log-1.0.0-20180327.091343-14-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jl.user.provider.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="cn.jl.uer.api.model.User">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="creation_date" jdbcType="TIMESTAMP" property="creationDate" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="updation_date" jdbcType="TIMESTAMP" property="updationDate" />
+        <result column="enabled_flag" jdbcType="INTEGER" property="enabledFlag" />
+    </resultMap>
+    <sql id="BaseTable">
+        tb_user
+    </sql>
+    <select id="getByName" resultMap="BaseResultMap">
+        SELECT *
+        FROM <include refid="BaseTable"/>
+        WHERE user_name = #{userName}
+    </select>
+    <select id="listUser" resultMap="BaseResultMap">
+        SELECT * FROM tb_user
+    </select>
+</mapper>

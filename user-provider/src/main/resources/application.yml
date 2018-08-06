@@ -1,0 +1,78 @@
+spring:
+  profiles: #不同环境取不同配置
+    active: test
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+
+  datasource:
+    poolName: ${spring.application.name}
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://mysql.einwin.com:5630/framework-demo?tinyInt1isBit=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: bestpractice
+    password: Best@2017
+    autoCommit: false
+    minIdle: 5
+    maximumPoolSize: 20
+    connectionInitSql: select 1
+server:
+  port: 9876
+  context-path: /
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname:eureka.einwin.com}:${eureka.server.port:18761}/eureka/
+  instance: #在服务端显示ip地址
+    prefer-ip-address: true
+
+
+
+mybatis:
+#    type-aliases-package: com.example.domain.model
+#    type-handlers-package: com.example.typehandler
+    configuration:
+        map-underscore-to-camel-case: true
+        default-fetch-size: 100
+        default-statement-timeout: 30
+
+    mapperLocations: classpath*:cn/jl/user/provider/mapper/*.xml
+
+
+logging:
+  file: ${spring.application.name}
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.springframework.web.servlet.view: DEBUG
+    org.springframework.web.servlet.mvc: DEBUG
+    io.undertow.request: ERROR
+    com.einwin: DEBUG
+    com.einwin.framework.mybatis: DEBUG
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count
+
+#hystrix:
+#  command:
+#    default:
+#      circuitBreaker:
+#        sleepWindowInMilliseconds: 30000
+#        requestVolumeThreshold: 50
+#      execution:
+#        timeout:
+#          enabled: true
+#        isolation:
+#          strategy: SEMAPHORE
+#          semaphore:
+#            maxConcurrentRequests: 50
+#          thread:
+#            timeoutInMilliseconds: 100000
+#
+#security:
+#  user:
+#    name: mao
+#    password: 123
